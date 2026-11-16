@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /ytclip/
+
+    # Direct access to public assets
+    RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+
+    # Deny access to sensitive folders and files
+    RewriteRule ^(\.env|\.git|storage/|config/|src/|views/|database/|worker\.php|composer\.) - [F,L]
+
+    # If the file or directory exists in root, serve it
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route all other URLs to public/index.php
+    RewriteRule ^(.*)$ public/index.php [L,QSA]
+</IfModule>

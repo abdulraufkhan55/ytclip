@@ -1,0 +1,14 @@
+{
+    "name": "ytclip/multi-platform-publisher",
+    "description": "Multi-Platform Short Video Publishing and Automation System for YouTube Shorts, TikTok, and Instagram Reels",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
